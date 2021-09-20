@@ -39,11 +39,8 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _19_RemoveNthNodeFromEndOfList {
-      
+
       //leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for singly-linked list.
@@ -57,22 +54,28 @@ public class _19_RemoveNthNodeFromEndOfList {
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-
-        List<ListNode> nodes = new ArrayList<>();
-        while (head != null){
-            nodes.add(head);
-            head = head.next;
-        }
-        int index = nodes.size()-n;
-        if(index < 0){
+        if(head == null || n == 0){
             return null;
-        }else if(index == 0){
-            return nodes.size() == 1 ? null : nodes.get(1);
         }
-        final ListNode next = nodes.get(index).next;
-        nodes.get(index).next = null;
-        nodes.get(index-1).next = next;
-        return nodes.get(0);
+        ListNode first = head;
+        ListNode second = head;
+        int firstIndex = 1;
+        while (first != null && firstIndex <= n){
+            first = first.next;
+            firstIndex++;
+        }
+        if(first == null){
+            return head.next;
+        }
+        first = first.next;
+        while (first != null){
+            first = first.next;
+            second = second.next;
+        }
+        final ListNode next = second.next;
+        second.next = next.next;
+        next.next = null;
+        return head;
 
     }
 
