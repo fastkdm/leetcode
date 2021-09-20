@@ -44,7 +44,7 @@ package leetcode.editor.cn;
 
 import java.util.List;
 
-public class ReverseLinkedList{
+public class _206_ReverseLinkedList {
       
       //leetcode submit region begin(Prohibit modification and deletion)
 /**
