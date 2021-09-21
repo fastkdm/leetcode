@@ -41,7 +41,7 @@
 
 package leetcode.editor.cn;
 
-public class SwapNodesInPairs{
+public class _24_SwapNodesInPairs {
       
       //leetcode submit region begin(Prohibit modification and deletion)
 /**
